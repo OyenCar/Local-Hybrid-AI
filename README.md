@@ -24,6 +24,7 @@ graph LR
     User((User)) <-->|Voice/Text| Win[Windows Python App]
     Win <-->|API Request| Bridge[Localhost Port]
     Bridge <-->|Inference| WSL[WSL 2 Engine]
+```
 
 1. WSL Side: Menjalankan Server LLM (misal: Ollama serve).
 
