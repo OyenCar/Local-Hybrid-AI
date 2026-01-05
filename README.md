@@ -51,18 +51,47 @@ Jalankan perintah berikut di PowerShell (Run as Administrator):
 wsl --install
 ```
 
-2. Instalasi Ollama
-Jalankan perintah berikut di WSL (Run as Administrator):
-```WSL
-curl -fsSL https://ollama.com/install.sh | sh
-```
+2. Persiapan Backend (Linux/WSL)
+<details>
+    <summary>
+        <b>🔻 Klik untuk melihat cara install Ollama</b>
+    </summary>
+        Buka terminal Ubuntu (WSL), lalu jalankan perintah ini untuk menginstal engine AI:Bashcurl -fsSL [https://ollama.com/install.sh](https://ollama.com/install.sh) | sh
+</details>
 
-3. Pilih Model
-Rekomendasi:
-Tipe,Nama Model,Kebutuhan RAM,Perintah Install (WSL)
-⚡ Cepat,Gemma 2B,~4 GB,    ollama run gemma:2b
-⚖️ Standar,Llama 3,~8 GB,   ollama run llama3
-🧠 Pintar,Mistral,~16 GB,   ollama run mistral
+3. Pilih Otak AI (Model Selection)
+<p>Download model yang sesuai dengan spesifikasi RAM laptopmu. Jalankan perintah di kolom kanan pada <strong>Terminal WSL</strong>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th align="left">Spesifikasi PC</th>
+      <th align="left">Model Name</th>
+      <th align="left">Perintah Install (WSL)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>⚡ <strong>RAM &lt; 8GB</strong> (Ringan)</td>
+      <td><code>gemma:2b</code></td>
+      <td><code>ollama run gemma:2b</code></td>
+    </tr>
+    <tr>
+      <td>⚖️ <strong>RAM 8GB - 16GB</strong> (Standar)</td>
+      <td><code>llama3</code></td>
+      <td><code>ollama run llama3</code></td>
+    </tr>
+    <tr>
+      <td>🧠 <strong>RAM &gt; 16GB</strong> (Pintar)</td>
+      <td><code>mistral</code></td>
+      <td><code>ollama run mistral</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>💡 <strong>Tips:</strong> Setelah masuk mode chat di terminal, ketik <code>/bye</code> untuk keluar agar kembali ke prompt sistem.</p>
+</blockquote>
 
 ### 🪟 Setup (FrontEnd)
 Sekarang, kita siapkan script Python di sisi Windows. Buka CMD atau PowerShell di folder project ini.
