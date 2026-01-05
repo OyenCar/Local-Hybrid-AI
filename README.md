@@ -1,2 +1,53 @@
-# Local-Hybrid-AI
-Berikut adalah format README.md yang profesional dan siap pakai untuk repository GitHub kamu. Format ini dirancang agar mudah dibaca oleh developer lain dan menjelaskan arsitektur hybrid (Windows-WSL) dengan jelas.  Kamu bisa menyalin teks di bawah ini langsung ke file README.md.  🤖 Local Companion AI (WSL-Windows Hybrid) Local Companion AI adalah asisten virtual berbasis privasi yang berjalan sepenuhnya secara lokal (offline). Proyek ini menerapkan arsitektur hybrid bridge yang unik: memanfaatkan kekuatan lingkungan Linux (WSL 2) untuk menjalankan Inference Engine (LLM), sementara antarmuka dan kontrol logika berjalan native di Windows (Main OS).  🚀 Mengapa Arsitektur Ini? Proyek ini menggabungkan "The Best of Both Worlds":  WSL (Backend): Lingkungan Linux seringkali lebih stabil dan mudah dikonfigurasi untuk library AI/ML (seperti CUDA, PyTorch, Ollama).  Windows (Frontend): Memungkinkan interaksi langsung dengan desktop pengguna, akses mikrofon, speaker (TTS), dan GUI tanpa perlu konfigurasi X11/Wayland yang rumit.  🛠️ Arsitektur Sistem Cuplikan kode  graph LR     subgraph Windows [Main OS - Windows 10/11]         UI[Python Controller] -- Request (JSON) --> Localhost         Localhost -- Response (Text) --> UI         TTS[Text-to-Speech]         STT[Speech-to-Text]     end          subgraph WSL [WSL 2 - Ubuntu/Debian]         Server[API Server / Ollama]         Model[LLM Weights]     end          UI <-->|Port Forwarding| Server Backend (WSL): Menjalankan LLM Server (misal: Ollama / Text-Gen-WebUI) pada port tertentu (contoh: 11434).  Bridge: WSL 2 secara otomatis mem-forward port localhost ke Windows.  Frontend (Windows): Skrip Python yang mengirim prompt ke localhost:port dan memproses respons untuk ditampilkan atau dibacakan.  ✨ Fitur Utama 🔒 100% Offline & Private: Tidak ada data yang dikirim ke cloud.  ⚡ Low Latency: Komunikasi via local network (localhost) sangat cepat.  🗣️ Voice Capability: Integrasi Text-to-Speech (TTS) menggunakan engine native Windows (pyttsx3) atau Edge TTS.  🧠 Modular Engine: Ganti model AI di WSL (Llama3, Mistral, Gemma) tanpa mengubah kode di Windows.  📋 Prasyarat (Prerequisites) Sebelum menjalankan proyek ini, pastikan kamu memiliki:  Windows 10/11 dengan WSL 2 aktif.  Python 3.x terinstall di Windows.  AI Engine di dalam WSL (Contoh: Ollama).  ⚙️ Cara Instalasi & Penggunaan 1. Setup Backend (di Terminal WSL) Pastikan server AI sudah berjalan dan siap menerima request.  Bash  # Contoh jika menggunakan Ollama curl -fsSL https://ollama.com/install.sh | sh ollama serve # Biarkan terminal ini terbuka atau jalankan di background 2. Setup Frontend (di CMD/PowerShell Windows) Clone repository ini dan install dependensi.  Bash  git clone https://github.com/username-kamu/nama-repo-kamu.git cd nama-repo-kamu pip install -r requirements.txt 3. Konfigurasi Edit file .env atau config.py (jika ada) untuk menyesuaikan URL API:  Python  API_URL = "http://localhost:11434/api/chat" MODEL_NAME = "llama3" 4. Jalankan Bash  python main.py 📦 Tech Stack Language: Python 3  Communication: HTTP Requests (REST API)  Backend Engine: WSL 2 (Ubuntu), Ollama/Llama.cpp  Libraries: requests, pyttsx3, speechrecognition  🤝 Kontribusi Kontribusi sangat diterima! Silakan buka Issue untuk diskusi fitur atau Pull Request untuk perbaikan kode.  📝 Lisensi MIT License  Tips Tambahan untuk Deskripsi Repository (About Section) Di bagian samping kanan halaman GitHub (About), kamu bisa mengisi deskripsi singkat seperti ini:  Description: Asisten AI lokal dengan arsitektur hybrid: Backend LLM berjalan di WSL 2, Frontend & Voice Control berjalan di Windows via Python Bridge. 100% Offline & Private.  Topics: python wsl2 artificial-intelligence llm local-ai automation ollama
+# 🤖 [Local-Hybrid-AI]
+
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=flat&logo=python)
+![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20WSL2-orange?style=flat&logo=linux)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat)
+
+**[Nama-Project]** adalah jembatan (bridge) untuk membuat asisten AI pribadi yang berjalan **100% lokal**. Proyek ini menghubungkan kekuatan komputasi AI di **WSL 2** dengan antarmuka pengguna di **Windows**.
+
+> **Konsep:** Backend (Otak) di Linux WSL + Frontend (Tubuh/Suara) di Windows.
+
+## ⚡ Fitur
+
+- 🔒 **Privasi Total:** Semua data diproses offline (localhost).
+- 🚀 **Hybrid Architecture:** Memanfaatkan driver GPU Linux di WSL untuk performa model, namun tetap berinteraksi via Windows.
+- 🗣️ **Voice Support:** Terintegrasi dengan Text-to-Speech (TTS) bawaan Windows.
+- 🧩 **Modular:** Mendukung berbagai engine AI (Ollama, Llama.cpp, Text-Gen-WebUI).
+
+## 🛠️ Arsitektur
+
+Sistem bekerja melalui komunikasi HTTP Request via `localhost`.
+
+```mermaid
+graph LR
+    User((User)) <-->|Voice/Text| Win[Windows Python App]
+    Win <-->|API Request| Bridge[Localhost Port]
+    Bridge <-->|Inference| WSL[WSL 2 Engine]
+
+1. WSL Side: Menjalankan Server LLM (misal: Ollama serve).
+
+2. Windows Side: Script Python mengirim prompt user ke API WSL.
+
+3. Output: Respon diterima Windows dan dibacakan/ditampilkan.
+
+📋 Prasyarat
+Sebelum memulai, pastikan kamu memiliki:
+
+> Windows 10/11 dengan WSL 2 aktif.
+
+> Python 3.x terinstall di Windows.
+
+>  AI Engine di dalam WSL (Rekomendasi: Ollama).
+
+🚀 Cara Instalasi
+1. Siapkan Backend (Terminal WSL)
+Jalankan server AI di WSL agar siap menerima request.
+
+'''
+# Contoh menggunakan Ollama
+ollama pull llama3
+ollama serve
+'''
+# Biarkan terminal ini terbuka
+
