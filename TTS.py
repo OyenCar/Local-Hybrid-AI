@@ -3,6 +3,7 @@ import edge_tts
 import pygame
 import os
 import time
+import config
 
 # Nama suara Indonesia Cowok yang natural: "id-ID-ArdiNeural"
 # Nama suara Indonesia Cewek yang natural: "id-ID-GadisNeural"
@@ -15,8 +16,8 @@ def setup_suara():
     else:
         return "id-ID-GadisNeural"
     
-VOICE = setup_suara()
-OUTPUT_FILE = "test_edge.mp3"
+VOICE = config.VOICE_NAME
+OUTPUT_FILE = "temp.mp3"
 
 def putar_audio(file_path):
     pygame.mixer.init()

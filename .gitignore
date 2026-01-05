@@ -1,0 +1,23 @@
+# --- Python Standard ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Virtual Environment (Wajib di-ignore agar tidak berat) ---
+venv/
+.venv/
+env/
+.env
+
+# --- Project Specific (Agar file audio hasil TTS tidak ikut ter-upload) ---
+*.mp3
+*.wav
+temp_audio/
+
+# --- IDE / Text Editor Settings ---
+.vscode/
+.idea/
+
+# --- OS Generated Files ---
+.DS_Store
+Thumbs.db

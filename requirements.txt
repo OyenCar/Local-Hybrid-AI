@@ -1,1 +1,3 @@
+requests
+edge-tts
 pygame

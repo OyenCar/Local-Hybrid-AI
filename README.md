@@ -35,17 +35,52 @@ graph LR
 📋 Prasyarat
 Sebelum memulai, pastikan kamu memiliki:
 
-> Windows 10/11 dengan WSL 2 aktif.
+1. Windows 10/11 dengan WSL 2 aktif.
 
-> Python 3.x terinstall di Windows.
+2. Python 3.x terinstall di Windows.
 
->  AI Engine di dalam WSL (Rekomendasi: Ollama).
+3.  AI Engine di dalam WSL (Rekomendasi: Ollama).
 
-🚀 Cara Instalasi
-1. Instalasi WSL (Terminal WSL)
-Jalankan server AI di WSL agar siap menerima request.
 
-```PowerShell
+### 🚀 Cara Instalasi
+
+1. Instalasi WSL
+Jalankan perintah berikut di PowerShell (Run as Administrator):
+
+```powershell
 wsl --install
 ```
 
+2. Instalasi Ollama
+Jalankan perintah berikut di WSL (Run as Administrator):
+```WSL
+curl -fsSL https://ollama.com/install.sh | sh
+```
+
+3. Pilih Model
+Rekomendasi:
+Standar: 
+```
+ollama run llama3
+```
+Alternatif Ringan untuk RAM 8GB:
+```
+ollama run gemma:2b
+```
+Untuk PC (HIGH-End):
+```
+ollama run mistral
+```
+
+### 🪟 Setup (FrontEnd)
+Sekarang, kita siapkan script Python di sisi Windows. Buka CMD atau PowerShell di folder project ini.
+
+```powerShell
+# 1. Clone Repository ini (jika belum)
+git clone [https://github.com/OyenCar/Local-Hybrid-AI](https://github.com/OyenCar/Local-Hybrid-AI)
+cd Local-Hybrid-AI
+
+# 2. Install Library Python
+```
+pip install -r requirements.txt
+```
