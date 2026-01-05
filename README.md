@@ -59,18 +59,10 @@ curl -fsSL https://ollama.com/install.sh | sh
 
 3. Pilih Model
 Rekomendasi:
-Standar: 
-```
-ollama run llama3
-```
-Alternatif Ringan untuk RAM 8GB:
-```
-ollama run gemma:2b
-```
-Untuk PC (HIGH-End):
-```
-ollama run mistral
-```
+Tipe,Nama Model,Kebutuhan RAM,Perintah Install (WSL)
+⚡ Cepat,Gemma 2B,~4 GB,    ollama run gemma:2b
+⚖️ Standar,Llama 3,~8 GB,   ollama run llama3
+🧠 Pintar,Mistral,~16 GB,   ollama run mistral
 
 ### 🪟 Setup (FrontEnd)
 Sekarang, kita siapkan script Python di sisi Windows. Buka CMD atau PowerShell di folder project ini.
