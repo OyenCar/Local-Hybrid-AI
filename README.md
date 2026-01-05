@@ -75,12 +75,19 @@ ollama run mistral
 ### 🪟 Setup (FrontEnd)
 Sekarang, kita siapkan script Python di sisi Windows. Buka CMD atau PowerShell di folder project ini.
 
+1. Clone Repository ini (jika belum)
 ```powerShell
-# 1. Clone Repository ini (jika belum)
 git clone [https://github.com/OyenCar/Local-Hybrid-AI](https://github.com/OyenCar/Local-Hybrid-AI)
 cd Local-Hybrid-AI
+```
 
-# 2. Install Library Python
+2. Install Library Python
+Install Library
 ```
 pip install -r requirements.txt
+```
+
+3. Jalankan OllamaMain.py
+```
+python .\OllamaMain.py
 ```

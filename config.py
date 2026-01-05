@@ -28,4 +28,5 @@ Jawablah dengan singkat, padat, dan natural seperti percakapan sehari-hari.
 Jangan memberikan jawaban yang terlalu panjang kecuali diminta.
 Gunakan Bahasa Indonesia yang gaul tapi sopan.
 """
+
 STREAM = True
