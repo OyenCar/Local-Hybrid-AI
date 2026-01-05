@@ -42,13 +42,10 @@ Sebelum memulai, pastikan kamu memiliki:
 >  AI Engine di dalam WSL (Rekomendasi: Ollama).
 
 🚀 Cara Instalasi
-1. Siapkan Backend (Terminal WSL)
+1. Instalasi WSL (Terminal WSL)
 Jalankan server AI di WSL agar siap menerima request.
 
-'''
-# Contoh menggunakan Ollama
-ollama pull llama3
-ollama serve
-'''
-# Biarkan terminal ini terbuka
+```PowerShell
+wsl --install
+```
 
