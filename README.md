@@ -51,13 +51,11 @@ Jalankan perintah berikut di PowerShell (Run as Administrator):
 wsl --install
 ```
 
-2. Persiapan Backend (Linux/WSL)
-<details>
-    <summary>
-        <b>🔻 Klik untuk melihat cara install Ollama</b>
-    </summary>
-        Buka terminal Ubuntu (WSL), lalu jalankan perintah ini untuk menginstal engine AI:Bashcurl -fsSL [https://ollama.com/install.sh](https://ollama.com/install.sh) | sh
-</details>
+2. Instalasi Ollama
+Jalankan perintah berikut di WSL (Run as Administrator):
+```WSL
+curl -fsSL https://ollama.com/install.sh | sh
+```
 
 3. Pilih Otak AI (Model Selection)
 <p>Download model yang sesuai dengan spesifikasi RAM laptopmu. Jalankan perintah di kolom kanan pada <strong>Terminal WSL</strong>.</p>
