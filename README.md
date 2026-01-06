@@ -4,7 +4,7 @@
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20WSL2-orange?style=flat&logo=linux)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat)
 
-**[Nama-Project]** adalah jembatan (bridge) untuk membuat asisten AI pribadi yang berjalan **100% lokal**. Proyek ini menghubungkan kekuatan komputasi AI di **WSL 2** dengan antarmuka pengguna di **Windows**.
+**Local-Hybrid-AI** adalah jembatan (bridge) untuk membuat asisten AI pribadi yang berjalan **100% lokal**. Proyek ini menghubungkan kekuatan komputasi AI di **WSL 2** dengan antarmuka pengguna di **Windows**.
 
 > **Konsep:** Backend (Otak) di Linux WSL + Frontend (Tubuh/Suara) di Windows.
 
