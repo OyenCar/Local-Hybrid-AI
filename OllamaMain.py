@@ -13,6 +13,9 @@ except ImportError:
 except Exception as e:
     TTS_AVAILABLE = False
     print(f"⚠️  Error TTS: {e}")
+    
+if not config.TTS:
+    TTS_AVAILABLE = False
 
 def tanya_ollama(model=config.MODEL_NAME):
     url = config.API_URL
@@ -36,11 +39,17 @@ def tanya_ollama(model=config.MODEL_NAME):
 
             # Siapkan data
             payload = {
-                "model": model,
-                "prompt": prompt,
-                "system": config.SYSTEM_INSTRUCTION,
-                "stream": config.STREAM
-            }
+                    "model": model,
+                    "prompt": prompt,
+                    "system": config.SYSTEM_INSTRUCTION,
+                    "stream": config.STREAM,
+                    "options": {
+                        "temperature": 0.7,       # Kreativitas (standar)
+                        "repeat_penalty": 1.1,    # <--- TAMBAHKAN INI (Hukuman untuk kata berulang)
+                        "top_k": 40,              # Membatasi pilihan kata agar tetap nyambung
+                        "num_ctx": 4096           # Memperbesar memori konteks (agar tidak lupa soal awal)
+                    }
+                }
 
             # --- LOGIKA STREAMING (Teks muncul per kata) ---
             if config.STREAM:

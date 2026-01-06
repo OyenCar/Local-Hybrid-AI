@@ -30,3 +30,4 @@ Gunakan Bahasa Indonesia yang gaul tapi sopan.
 """
 
 STREAM = True
+TTS = False
